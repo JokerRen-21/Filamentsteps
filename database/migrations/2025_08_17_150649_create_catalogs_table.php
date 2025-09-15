@@ -16,6 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignIdFor(Team::class, 'team_id');
+            $table->text('description')->nullable();
+            $table->text('email')->required();
             $table->timestamps();
         });
     }

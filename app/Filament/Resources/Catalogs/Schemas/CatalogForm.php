@@ -12,6 +12,13 @@ class CatalogForm
         return $schema
             ->components([
                 TextInput::make('name')
+                    ->required(), 
+               TextInput::make('description')
+                    ->required()
+                    ->maxLength(65535),
+                TextInput::make('email')
+                    ->label('Contact Email')
+                    ->email()
                     ->required(),
             ]);
     }

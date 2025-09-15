@@ -9,6 +9,8 @@ use Filament\Actions\EditAction;
 use Filament\Facades\Filament;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
+use function Livewire\wrap;
+use Filament\Support\Icons\Heroicon;
 
 class CatalogsTable
 {
@@ -21,6 +23,15 @@ class CatalogsTable
                 TextColumn::make('team_id')
                     ->numeric()
                     ->sortable(),
+               TextColumn::make('description')
+                    ->limit(40) 
+                    ->wrapHeader()
+                    ->searchable(),
+                    
+               TextColumn::make('email')
+                    ->icon(Heroicon::Envelope)
+                    ->iconColor('iconcolor'),
+
                 TextColumn::make('created_at')
                     ->dateTime()
                     ->sortable()
